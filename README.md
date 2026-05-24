@@ -1,68 +1,197 @@
-SafeSight: AI-Based Smart Surveillance System
+# SafeSight – AI-Powered CCTV Surveillance System
 
-SafeSight is a real-time surveillance system built using computer vision and AI to detect critical events such as intrusion, crowd formation, fire, and human falls, and trigger alerts instantly.
+SafeSight is a real-time AI-powered surveillance system built using computer vision and deep learning to monitor CCTV feeds and detect security-critical events automatically.
 
-Features
-Person Detection & Tracking using YOLO
-Intrusion Detection with custom ROI
-Loitering Detection based on dwell time
-Fire Detection using color-based segmentation
-Crowd Detection using grid density and distance methods
-Fall Detection using MediaPipe Pose
-Face Recognition (Optional) using LBPH
-Snapshots & Event Logging with CSV export
-Telegram Alerts with image notifications
-Live Metrics (FPS, latency, alerts)
+It can detect events such as:
 
-Tech Stack
-Python
-OpenCV
-YOLO (Ultralytics)
-MediaPipe
-Flask
-NumPy
+- Intrusion Detection
+- Crowd Formation Detection
+- Fire Detection
+- Human Fall Detection
+- Loitering Detection
+- Person Detection & Tracking
+- Face Recognition (optional)
 
+When an event is detected, SafeSight can generate alerts, capture snapshots, log incidents, and send Telegram notifications instantly.
 
-Project Structure
+---
 
+## Features
+
+### Person Detection & Tracking
+Uses YOLO to detect and track people in real time from CCTV footage.
+
+### Intrusion Detection
+Detects when a person enters a restricted Region of Interest (ROI).
+
+### Loitering Detection
+Tracks dwell time and flags suspicious long-duration presence.
+
+### Crowd Detection
+Detects crowd formation using density/grid-based analysis.
+
+### Fire Detection
+Identifies possible fire regions using computer vision-based color segmentation.
+
+### Fall Detection
+Uses MediaPipe Pose estimation to detect human falls.
+
+### Face Recognition (Optional)
+Supports face recognition using LBPH.
+
+### Event Logging
+Stores event logs with timestamp and exports to CSV.
+
+### Snapshot Capture
+Captures event images automatically.
+
+### Telegram Alerts
+Sends instant alert notifications with images to Telegram.
+
+### Live Dashboard Metrics
+Displays:
+- FPS
+- Detection latency
+- Alert count
+- Event monitoring status
+
+---
+
+# Tech Stack
+
+- Python
+- OpenCV
+- NumPy
+- Flask
+- YOLO (Ultralytics)
+- MediaPipe
+
+---
+
+# Project Structure
+
+```bash
 SafeSight/
-├── app/
-│   ├── main.py
+│
+├── dashboard/
+│   ├── app.py
 │   ├── templates/
-│   └── static/snapshots/
+│   └── static/
+│
 ├── detection/
 │   └── yolo_detector.py
+│
 ├── data/
 │   ├── videos/
 │   └── faces/
+│
+├── main.py
 ├── requirements.txt
 └── README.md
+```
 
+---
 
-Installation
-git clone https://github.com/your-username/safesight.git
-cd safesight
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Pratik-4912/AI_POWERED_CCTV_SURVILLENCE_SYSTEM.git
+cd AI_POWERED_CCTV_SURVILLENCE_SYSTEM
+```
+
+---
+
+## Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+## Install Dependencies
+
+```bash
 pip install -r requirements.txt
-python main.py
+```
 
-To Run 
+---
+
+# Run Project
+
+## Main Detection System
+
+```bash
+python main.py
+```
+
+## Run Dashboard
+
+```bash
 cd dashboard
 python app.py
+```
 
-Open in browser:
+---
+
+# Open in Browser
+
+```bash
 http://127.0.0.1:5000/
+```
+# API Endpoints
 
-Key Endpoints
-/video_feed – Live stream
-/toggle_crowd – Enable/disable crowd detection
-/toggle_fire – Enable/disable fire detection
-/toggle_fall – Enable/disable fall detection
-/toggle_face – Enable/disable face recognition
-/events – View logs
-/metrics – Live system metrics
-Telegram Setup
+| Endpoint | Description |
+|---|---:|
+| `/video_feed` | Live CCTV stream |
+| `/toggle_crowd` | Enable/Disable crowd detection |
+| `/toggle_fire` | Enable/Disable fire detection |
+| `/toggle_fall` | Enable/Disable fall detection |
+| `/toggle_face` | Enable/Disable face recognition |
+| `/events` | View event logs |
+| `/metrics` | Live system metrics |
 
-Add your bot credentials in the code:
+---
+# Telegram Alert Setup
 
-BOT_TOKEN = "YOUR_TOKEN"
+Add your Telegram bot credentials inside the code:
+
+```python
+BOT_TOKEN = "YOUR_BOT_TOKEN"
 CHAT_ID = "YOUR_CHAT_ID"
+```
+# Author
+
+## Pratik
+
+GitHub:
+
+https://github.com/Pratik-4912
+
+Project Repository:
+
+https://github.com/Pratik-4912/AI_POWERED_CCTV_SURVILLENCE_SYSTEM
+
+---
+# Future Improvements
+
+- Multi-camera support
+- Email alerts
+- Cloud deployment
+- Database-based event storage
+- Mobile alert dashboard
+- Advanced face recognition with embeddings
+
+# License
+
+This project is built for academic and learning purposes.
